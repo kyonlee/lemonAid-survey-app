@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import history from '../history';
 import { fetchUser } from '../actions';
 import Header from './Header';
 import Landing from './Landing';
@@ -15,15 +16,17 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className="container">
-				<BrowserRouter>
+			<div>
+				<Router history={history}>
 					<div>
 						<Header />
-						<Route path="/" exact component={Landing} />
-						<Route path="/surveys" exact component={Dashboard} />
-						<Route path="/surveys/new" component={SurveyNew} />
+						<div className="container">
+							<Route path="/" exact component={Landing} />
+							<Route path="/surveys" exact component={Dashboard} />
+							<Route path="/surveys/new" component={SurveyNew} />
+						</div>
 					</div>
-				</BrowserRouter>
+				</Router>
 			</div>
 		);
 	}

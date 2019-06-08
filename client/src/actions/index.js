@@ -1,4 +1,6 @@
 import axios from 'axios';
+
+import history from '../history';
 import { FETCH_USER, FETCH_SURVEYS } from './types';
 
 export const fetchUser = () => async dispatch => {
@@ -13,10 +15,9 @@ export const handleToken = token => async dispatch => {
 	dispatch({ type: FETCH_USER, payload: response.data });
 };
 
-export const submitSurvey = (values, history) => async dispatch => {
+export const submitSurvey = values => async dispatch => {
 	const response = await axios.post('/api/surveys', values);
 
-	// to manage your our history please
 	history.push('/surveys');
 	dispatch({ type: FETCH_USER, payload: response.data });
 };

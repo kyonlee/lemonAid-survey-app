@@ -38,7 +38,7 @@ class Header extends React.Component {
 						to={this.props.auth ? '/surveys' : '/'}
 						className="left brand-logo"
 					>
-						lemon-aid
+						lemonAid <span className="teal-text">Survey</span>
 					</Link>
 					<ul className="right">{this.renderContent()}</ul>
 				</div>

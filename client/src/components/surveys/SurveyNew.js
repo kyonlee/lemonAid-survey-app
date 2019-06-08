@@ -31,7 +31,12 @@ class SurveyNew extends React.Component {
 	}
 
 	render() {
-		return <div>{this.renderContent()}</div>;
+		return (
+			<div>
+				<h3>Create Survey</h3>
+				{this.renderContent()}
+			</div>
+		);
 	}
 }
 
