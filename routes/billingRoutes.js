@@ -12,9 +12,13 @@ module.exports = app => {
 			description: '$5 for 5 survey credits'
 		});
 
-		req.user.credits += 5;
-		const user = await req.user.save();
+		try {
+			req.user.credits += 5;
+			const user = await req.user.save();
 
-		res.send(user);
+			res.send(user);
+		} catch (err) {
+			res.status(500).send(err);
+		}
 	});
 };
